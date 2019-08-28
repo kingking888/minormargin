@@ -8,7 +8,7 @@ spring:
     name: minormargin
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/minormargin?useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=true
+    url: jdbc:mysql://localhost:3306/minormargin?serverTimezone=CTT&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     userName: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -20,6 +20,15 @@ spring:
       pool-name: pool-lxl
       connectionTestQuery: SELECT 1
       minimum-idle: 10
+  jpa:
+    database: mysql
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   redis:
     database: 0
     host: localhost
