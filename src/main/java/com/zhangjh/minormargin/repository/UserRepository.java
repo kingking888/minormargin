@@ -2,6 +2,10 @@ package com.zhangjh.minormargin.repository;
 
 import com.zhangjh.minormargin.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @ClassName UserRepository
@@ -37,10 +41,30 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Boolean existsByUsername(String username);
 
     /**
+     * 判断手机号是否存在
+     *
+     * @param phone
+     * @return
+     */
+    Boolean existsByPhone(String phone);
+
+    /**
      * 判断id是否存在
      *
      * @param id
      * @return
      */
     Boolean existsById(Integer id);
+
+    /**
+     * 修改密码
+     *
+     * @param phone
+     * @param password
+     * @return
+     */
+    @Transactional(rollbackFor = RuntimeException.class)
+    @Modifying
+    @Query(value = "update xy_user u set u.password =:password where u.phone =:phone", nativeQuery = true)
+    int updateByPasword(@Param("phone") String phone, @Param("password") String password);
 }

@@ -3,6 +3,10 @@ server:
   tomcat:
     uri-encoding: UTF-8
 
+base64:
+  img:
+    type: data:image/jpeg;base64,
+
 spring:
   application:
     name: minormargin

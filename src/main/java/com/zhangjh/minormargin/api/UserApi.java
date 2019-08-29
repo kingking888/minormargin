@@ -1,7 +1,6 @@
 package com.zhangjh.minormargin.api;
 
 import com.zhangjh.minormargin.vo.Result;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 用户api
@@ -28,7 +27,27 @@ public interface UserApi {
      *
      * @param username
      * @param password
+     * @param phone
+     * @param phoneVerificationCode
      * @return
      */
-    Result register(String username, String password);
+    Result register(String username, String password, String phone, String phoneVerificationCode);
+
+    /**
+     * 忘记密码
+     *
+     * @param phone
+     * @param phoneVerificationCode
+     * @return
+     */
+    Result forgetPassword(String phone, String phoneVerificationCode);
+
+    /**
+     * 修改密码
+     *
+     * @param phone
+     * @param newPassword
+     * @return
+     */
+    Result updatePassword(String phone, String newPassword);
 }

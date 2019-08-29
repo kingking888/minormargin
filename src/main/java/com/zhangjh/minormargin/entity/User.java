@@ -81,7 +81,7 @@ public class User{
     /**
      * 手机号
      */
-    @Column(name = "phone", length = 64)
+    @Column(name = "phone", unique = true, length = 64)
     private String phone;
 
 }
