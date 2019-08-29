@@ -49,7 +49,7 @@ public class LoginController {
                            @RequestParam String password,
                            @RequestParam String phone,
                            @RequestParam String phoneVerificationCode) {
-        return userService.register(username, password);
+        return userService.register(username, password, phone, phoneVerificationCode);
     }
 
     /**
