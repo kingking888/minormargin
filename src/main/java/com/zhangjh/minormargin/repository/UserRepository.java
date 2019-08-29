@@ -1,10 +1,7 @@
 package com.zhangjh.minormargin.repository;
 
-import java.util.Optional;
-
 import com.zhangjh.minormargin.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 
 /**
  * @ClassName UserRepository

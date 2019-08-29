@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 免登录访问接口
+ * 免登陆访问接口
  *
  * @ClassName PassToken
  * @Description: TODO

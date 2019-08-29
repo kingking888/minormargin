@@ -27,9 +27,9 @@ public class LoginController {
      * @param password
      * @return
      */
-    @PostMapping("login")
-    public Result login(@RequestParam(required = false) String username,
-                        @RequestParam(required = false) String password){
+    @PostMapping("xy_login")
+    public Result login(@RequestParam String username,
+                        @RequestParam String password){
         return userService.login(username, password);
     }
 
@@ -40,9 +40,9 @@ public class LoginController {
      * @param password
      * @return
      */
-    @PostMapping("register")
-    public Result register(@RequestParam(required = false) String username,
-                           @RequestParam(required = false) String password){
+    @PostMapping("xy_register")
+    public Result register(@RequestParam String username,
+                           @RequestParam String password){
         return userService.register(username, password);
     }
 }

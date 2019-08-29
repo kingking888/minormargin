@@ -7,11 +7,9 @@ import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.zhangjh.minormargin.annotation.PassToken;
 import com.zhangjh.minormargin.annotation.UserLoginToken;
-import com.zhangjh.minormargin.constant.ResultCode;
 import com.zhangjh.minormargin.entity.User;
 import com.zhangjh.minormargin.repository.UserRepository;
 import com.zhangjh.minormargin.vo.Response;
-import com.zhangjh.minormargin.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 
@@ -60,7 +58,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             if (userLoginToken.required()) {
                 // 执行认证
                 if (token == null) {
-                    new Response(httpServletResponse, new Result(ResultCode.RESULT_FAIL, "无token，请登录。"));
+                    new Response(httpServletResponse, "无token，请登录。");
                     return false;
                 }
                 // 获取 token 中的 user id
@@ -72,7 +70,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 }
                 //判断用户是否存在
                 User user = userRepository.findById(Integer.parseInt(userId));
-                if (user == null){
+                if (user == null) {
                     throw new RuntimeException("用户不存在，请重新登录");
                 }
                 // 验证 token

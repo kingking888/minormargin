@@ -12,10 +12,10 @@ import java.io.PrintWriter;
  * @Version 小缘 1.0
  **/
 public class Response {
-    public Response(HttpServletResponse response, Result result) throws IOException {
+    public Response(HttpServletResponse response, String result) throws IOException {
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json; charset=utf-8");
         PrintWriter writer = response.getWriter();
-        writer.write(result.toString());
+        writer.write(result);
     }
 }

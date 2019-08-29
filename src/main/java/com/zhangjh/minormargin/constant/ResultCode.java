@@ -20,9 +20,4 @@ public class ResultCode {
      */
     public static final String RESULT_FAIL = "000000";
 
-    /**
-     * 未知异常
-     */
-    public static final String RESULT_UNKNOWN_EXCEPTION = "999999";
-
 }
