@@ -21,7 +21,7 @@ public class JwtUtil {
      * @param password 用户密码加密加盐
      * @return
      */
-    public static String getToken(Integer id, String password) {
+    public static String getToken(Long id, String password) {
         return JWT.create().withAudience(String.valueOf(id))
                 .sign(Algorithm.HMAC256(password));
     }

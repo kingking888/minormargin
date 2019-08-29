@@ -31,6 +31,7 @@ public class UserService implements UserApi {
 
     @Override
     public Result login(String username, String password) {
+
         User loginUser = userRepository.findByUsernameAndPassword(username, password);
         if (loginUser == null) {
             return new Result(ResultCode.RESULT_FAIL, "登陆失败，用户名或密码错误.");

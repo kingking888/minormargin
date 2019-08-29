@@ -69,7 +69,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     throw new RuntimeException("401");
                 }
                 //判断用户是否存在
-                User user = userRepository.findById(Integer.parseInt(userId));
+                User user = userRepository.getOne(Long.parseLong(userId));
                 if (user == null) {
                     throw new RuntimeException("用户不存在，请重新登录");
                 }
